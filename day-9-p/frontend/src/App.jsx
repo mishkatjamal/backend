@@ -16,7 +16,7 @@ const App = () => {
 
   // fetch notes
   async function fetchData() {
-    const response = await axios.get("http://localhost:3000/api/notes")
+    const response = await axios.get("https://backend-crr8.onrender.com/api/notes")
     setnotes(response.data.notes)
 
 
@@ -29,7 +29,7 @@ const App = () => {
     // check for create note or update note
     //^ PATCH
     if (edit) {
-      await axios.patch(`http://localhost:3000/api/notes/${edit}`, {
+      await axios.patch(`https://backend-crr8.onrender.com/api/notes/${edit}`, {
         title: title,
         des: des,
         imgUrl: imgUrl
@@ -47,7 +47,7 @@ const App = () => {
 
       // call api to create note
       //^ POST
-      await axios.post("http://localhost:3000/api/notes", ({
+      await axios.post("https://backend-crr8.onrender.com/api/notes", ({
         title: title.value,
         des: des.value,
         imgUrl: imgUrl.value,
@@ -66,7 +66,7 @@ const App = () => {
   // delete logic
   // ^DELETE
   async function deleteHandler(noteId) {
-    await axios.delete("http://localhost:3000/api/notes/" + noteId)
+    await axios.delete("https://backend-crr8.onrender.com/api/notes/" + noteId)
     fetchData()
   }
 
