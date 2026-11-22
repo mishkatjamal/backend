@@ -4,8 +4,8 @@ app.use(express.json())
 const cors = require("cors")
 app.use(cors())
 const noteModel = require("./models/note.model")
-
-
+const path = require("path")
+app.use(express.static("./public"))
 // POST /api/notes
 // to create a note on data base 
 app.post("/api/notes",async (req,res)=>{
@@ -54,5 +54,11 @@ app.patch("/api/notes/:id",async (req,res)=>{
         message:"note updated successfully"
     })
 })
+
+// wild card 
+app.use("*name",(req,res)=>{
+    res.sendFile(path.join(__dirname),"..","/public/index.html")
+})
+
 
 module.exports = app
