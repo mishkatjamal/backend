@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+.big{
+  padding: 5rem ;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.all-cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card{
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 5px;
+}
+.card img{
+  width: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.btns{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.btns .btn{
+  border-radius: 25px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: 1px solid black;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.btns .btn:hover{
+  padding-inline: 20px;
+}
+
+
+.delete{
+  background-color: red;
+  color: white;
+}
+.edit{
+  background-color: white;
+  color: black;
+}
+
+/* form css */
+form{
+  
+  width: 40%;
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  
+  
+}
+
+form input{
+  
+  width: 100%;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  /* border-bottom: 1px solid black; */
+  border-radius: 25px;
+  padding: 8px 15px;
+}
+.sub-btn{
+  padding: 10px 25px;
+  background-color: green;
+  border-radius: 25px;
+  border: none;
+  color: white;
+}
