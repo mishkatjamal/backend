@@ -3,9 +3,12 @@ const authRouter = express.Router()
 const userModel = require("../models/user.model")
 const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
+const { log } = require("console")
 
 
 // register api logic
+// /api/auth/register
+// POST
 authRouter.post("/register",async(req,res)=>{
     const {name,email,password} = req.body
 
@@ -43,6 +46,8 @@ res.cookie("jwt_token",token)
 
 
 // login api logic
+// /api/auth/login
+// POST
 authRouter.post("/login",async(req,res)=>{
     const {email,password} = req.body
 
@@ -81,4 +86,22 @@ res.status(200).json({
 })
 
 })
+
+// res cookie se data fetch ke liye 
+// /api/auth/get-me
+// GET
+authRouter.get("/get-me",async(req,res)=>{
+    const token = req.cookies.jwt_token
+    // token ko decode karna hai
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+    // console.log(decoded);
+    const user = await userModel.findById(decoded.id)
+
+    res.json({
+        name:user.name,
+        email:user.email
+    })
+    
+})
+
 module.exports = authRouter
